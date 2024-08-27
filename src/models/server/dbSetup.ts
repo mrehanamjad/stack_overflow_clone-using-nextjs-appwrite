@@ -5,10 +5,9 @@ import createAnswerCollection from "./answer.collection";
 import createCommentCollection from "./comment.collection";
 import { databases } from "./config";
 import createQuestionCollection from "./question.collection";
-import getOrCreateStorage from "./storage.collection";
 import createVoteCollection from "./vote.collection";
 
-export default async function gerOrCreateDB() {
+export default async function getOrCreateDB() {
     try {
         await databases.get(db)
         console.log("DataBase Connnected");
@@ -22,7 +21,6 @@ export default async function gerOrCreateDB() {
                 createQuestionCollection(),
                 createAnswerCollection(),
                 createCommentCollection(),
-                getOrCreateStorage(),
                 createVoteCollection()
             ])
             console.log("Connection created");
